@@ -1,10 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>All Comics</title>
+    <link rel="stylesheet" href="{% static 'comicapp/styles/base.css'%}">
+    <link rel="stylesheet" href="{%static 'comicapp/styles/all-comics.css'%}">
 </head>
 <body>
-    <h1> Comics </h1>
+    <header id="main-header">
+        <nav><a href="/comics" id="main-logo">DjangoComics</a></nav>
+        <h1>DC and MArvel Comics </h1>
+        <p>Find your Superhero comics</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming comics</h2>
+            <ol>
+                {% for comics_item in comics %}
+                    <li class="comics-item">
+                        <article>
+                            <div class="comics-summary">
+                                <div class="comics-image">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="comics-details">
+                                    <h3>{{ comics_item.title }}</h3>
+                                    <h2> Total number of episodes: {{ comics_item.episodes }}</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="" class="btn">More Details</a>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
 </body>
 </html>

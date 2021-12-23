@@ -1,0 +1,64 @@
+section {
+  max-width: 40rem;
+  margin: 3rem auto;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comics-item {
+  margin: 1rem 0;
+  background-color: #350490;
+  padding: 2rem;
+  color: white;
+  border-radius: 4px;
+}
+
+.comics-summary {
+  display: flex;
+  align-items: flex-start;
+  color: white;
+}
+
+.comics-image {
+  margin-right: 2rem;
+}
+
+.comics-image img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.comics-details h3 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.comics-details h2 {
+  font-style: italic;
+  color: white;
+}
+
+.comics-actions {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.comics-actions .btn {
+  background-color: #cb82fb;
+  border-color: #cb82fb;
+  color: #350490;
+  padding: 0.75rem 2rem;
+}
+
+.comics-actions .btn:hover {
+  background-color: #ba82fb;
+  border-color: #ba82fb;
+}
