@@ -16,3 +16,12 @@ def index(request):
                   {'show_comics': True,
                     'comics':comics
                    })
+
+def comics_details(request, comics_slug):
+    selected_comic = {
+        'title':'Wolverine Origins',
+        'description':'Comic telling a whole story about Wolverine'}
+    return render(request, 'comicapp/comics_details.html',{
+        'comic_title': selected_comic['title'],
+        'comic_description': selected_comic['description']
+    })
