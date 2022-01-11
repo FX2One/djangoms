@@ -1,21 +1,22 @@
+{% extends 'base/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Comics</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'comicapp/styles/base.css'%}">
-    <link rel="stylesheet" href="{%static 'comicapp/styles/all-comics.css'%}">
-</head>
-<body>
-    <header id="main-header">
-        <nav><a href="/comics" id="main-logo">DjangoComics</a></nav>
-        <h1>DC and Marvel Comics </h1>
-        <p>Find your Superhero comics</p>
-    </header>
-    <main>
+
+{% block title %}All Comics{% endblock %}
+
+{% block site_css %}
+    <link rel="stylesheet" href="{% static 'comicapp/styles/all-comics.css'%}">
+{% endblock %}
+
+{% block main_heading %}
+something main_heading
+{% endblock %}
+
+{% block header_content %}
+something header_content
+{% endblock %}
+
+{% block body %}
         <section>
             <h2>Upcoming comics</h2>
             <ol>
@@ -32,13 +33,11 @@
                                 </div>
                             </div>
                             <div class="comics-actions">
-                                <a href="" class="btn">More Details</a>
+                                <a href="{% url 'comics-details' comics_item.slug %}" class="btn">More Details</a>
                             </div>
                         </article>
                     </li>
                 {% endfor %}
             </ol>
         </section>
-    </main>
-</body>
-</html>
+{% endblock %}

@@ -25,3 +25,4 @@ def comics_details(request, comics_slug):
         'comic_title': selected_comic['title'],
         'comic_description': selected_comic['description']
     })
+

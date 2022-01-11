@@ -1,16 +1,20 @@
+{% extends 'base/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ comic_title }}</title>
-    <link rel="stylesheet" href="{% static 'comicapp/styles/base.css'%}">
+
+{% block title %}
+    {{ comic_title }}
+{% endblock %}
+
+{% block site_css %}
     <link rel="stylesheet" href="{% static 'comicapp/styles/comics-details.css'%}">
-</head>
-<body>
-    <main>
+{% endblock %}
+
+{% block main_heading %}
+    {{ comic_title }}
+{% endblock %}
+
+{% block body %}
         <article>
             <img src="" alt="">
 
@@ -23,6 +27,4 @@
                 <h2>What's the episode about</h2>
                 <p> {{comic_description}}</p>
         </article>
-    </main>
-</body>
-</html>
+{% endblock %}
