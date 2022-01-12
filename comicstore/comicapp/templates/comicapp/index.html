@@ -21,7 +21,7 @@ something header_content
             <h2>Upcoming comics</h2>
             <ol>
                 {% for comics_item in comics %}
-                    {% include 'includes/comics_item.html' with title=comics_item.title episodes='12' slug=comics_item.slug %}
+                    {% include 'includes/comics_item.html' with title=comics_item.title image=comics_item.image.url episodes='12' slug=comics_item.slug %}
                 {% endfor %}
             </ol>
         </section>
