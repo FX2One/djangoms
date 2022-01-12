@@ -21,22 +21,7 @@ something header_content
             <h2>Upcoming comics</h2>
             <ol>
                 {% for comics_item in comics %}
-                    <li class="comics-item">
-                        <article>
-                            <div class="comics-summary">
-                                <div class="comics-image">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="comics-details">
-                                    <h3>{{ comics_item.title }}</h3>
-                                    <h2> Total number of episodes: {{ comics_item.episodes }}</h2>
-                                </div>
-                            </div>
-                            <div class="comics-actions">
-                                <a href="{% url 'comics-details' comics_item.slug %}" class="btn">More Details</a>
-                            </div>
-                        </article>
-                    </li>
+                    {% include 'includes/comics_item.html' with title=comics_item.title episodes='12' slug=comics_item.slug %}
                 {% endfor %}
             </ol>
         </section>
