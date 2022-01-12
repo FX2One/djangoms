@@ -15,16 +15,22 @@
 {% endblock %}
 
 {% block body %}
-        <article>
-            <img src="" alt="">
 
-            <section id="release">
-                <h2>Date of release</h2>
-                <h3>Next episode of comic will be released on: (DATE)</h3>
-            </section>
+{% if comic_found %}
+    <article>
+        <img src="" alt="">
 
-            <section id="details"></section>
-                <h2>What's the episode about</h2>
-                <p> {{comic_description}}</p>
-        </article>
+        <section id="release">
+            <h2>Date of release</h2>
+            <h3>Next episode of comic will be released on: (DATE)</h3>
+        </section>
+
+        <section id="details"></section>
+        <h2>What's the episode about</h2>
+        <p> {{comic_description}}</p>
+    </article>
+{% else %}
+<p>no comics found under this slug</p>
+{% endif %}
+
 {% endblock %}
