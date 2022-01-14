@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Comic, ComicSeries
+from .models import Comic, ComicSeries, Available
 # Register your models here.
 
 class ComicsAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class ComicsAdmin(admin.ModelAdmin):
 
 admin.site.register(Comic, ComicsAdmin)
 admin.site.register(ComicSeries)
+admin.site.register(Available)

@@ -7,7 +7,7 @@ class ComicSeries(models.Model):
     episodes = models.IntegerField()
 
     def __str__(self):
-        return f'series: {self.series}'
+        return f'{self.series}'
 
 class Available(models.Model):
     email = models.EmailField(unique=True, max_length=200)
@@ -21,8 +21,8 @@ class Comic(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='images')
     series = models.ForeignKey(ComicSeries, on_delete=models.CASCADE)
-    subscriber = models.ManyToManyField(Available, blank=True, null=True)
-    
+    subscribers = models.ManyToManyField(Available, blank=True, null=True)
+
 
     def __str__(self):
         return f'{self.title} - {self.slug}'
