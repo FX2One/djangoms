@@ -3,8 +3,8 @@ from .models import Comic, ComicSeries, Available
 # Register your models here.
 
 class ComicsAdmin(admin.ModelAdmin):
-    list_display = ('title','series')
-    list_filter = ('title',)
+    list_display = ('title','series','date')
+    list_filter = ('title','date')
     prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Comic, ComicsAdmin)

@@ -18,6 +18,7 @@ class Available(models.Model):
 class Comic(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
+    date = models.DateField()
     description = models.TextField()
     image = models.ImageField(upload_to='images')
     series = models.ForeignKey(ComicSeries, on_delete=models.CASCADE)
