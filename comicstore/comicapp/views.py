@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Comic
 from .forms import SubscriptionForm
 # Create your views here.
@@ -16,6 +16,7 @@ def comics_details(request, comics_slug):
             if subscription_form.is_valid():
                 subscriber = subscription_form.save()
                 selected_comic.subscribers.add(subscriber)
+                return redirect('confirm-subscription')
         return render(request, 'comicapp/comics_details.html',{
             'comic_found': True,
             'comic': selected_comic,
@@ -24,3 +25,5 @@ def comics_details(request, comics_slug):
     except Exception as e:
         return render(request,'comicapp/comics_details.html',{'comic_found': False})
 
+def confirm_subscription(request):
+    return render(request, 'comicapp/sub-success.html')
