@@ -9,12 +9,18 @@ def index(request):
 def comics_details(request, comics_slug):
     try:
         selected_comic = Comic.objects.get(slug=comics_slug)
-        subscription_form = SubscriptionForm
+        if request.method == 'GET':
+            subscription_form = SubscriptionForm()
+        else:
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                subscriber = subscription_form.save()
+                selected_comic.subscribers.add(subscriber)
         return render(request, 'comicapp/comics_details.html',{
             'comic_found': True,
             'comic': selected_comic,
             'form': subscription_form
-        })
+         })
     except Exception as e:
         return render(request,'comicapp/comics_details.html',{'comic_found': False})
 

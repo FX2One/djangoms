@@ -30,7 +30,9 @@
         <p> {{comic.description}}</p>
         <section id="subscription">
             <h3>Get notified before release date or when stocks are renewed</h3>
-            <form>
+            <form action="{{ % url 'comics-details' comics.slug % }}" method="POST">
+                <!-- attack prevention -->
+                {% csrf_token %}
                 <p>Type in your email:</p>
                 <ul>
                     {{ form.as_ul }}
