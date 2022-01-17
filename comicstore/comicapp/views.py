@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Comic
+from .forms import SubscriptionForm
 # Create your views here.
 def index(request):
     comics = Comic.objects.all()
@@ -8,10 +9,11 @@ def index(request):
 def comics_details(request, comics_slug):
     try:
         selected_comic = Comic.objects.get(slug=comics_slug)
+        subscription_form = SubscriptionForm
         return render(request, 'comicapp/comics_details.html',{
             'comic_found': True,
-            'comic_title': selected_comic.title,
-            'comic_description': selected_comic.description
+            'comic': selected_comic,
+            'form': subscription_form
         })
     except Exception as e:
         return render(request,'comicapp/comics_details.html',{'comic_found': False})
