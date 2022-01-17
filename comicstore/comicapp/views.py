@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Comic
+from .models import Comic, Available
 from .forms import SubscriptionForm
 # Create your views here.
 def index(request):
@@ -14,7 +14,8 @@ def comics_details(request, comics_slug):
         else:
             subscription_form = SubscriptionForm(request.POST)
             if subscription_form.is_valid():
-                subscriber = subscription_form.save()
+                subscriber_email = subscription_form.cleaned_data['email']
+                subscriber, _ = Available.objects.get_or_create(email=subscriber_email) #_ usually stored as was_created
                 selected_comic.subscribers.add(subscriber)
                 return redirect('confirm-subscription')
         return render(request, 'comicapp/comics_details.html',{
