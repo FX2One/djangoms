@@ -33,7 +33,6 @@
             <form action="{% url 'comics-detail' comic.slug %}" method="POST">
                 <!-- attack prevention -->
                 {% csrf_token %}
-                <p>Type in your email:</p>
                 <ul>
                     {{ form.as_ul }}
                 </ul>
